@@ -51,7 +51,7 @@ namespace ABCCorp.EmployeeManagement.Identity
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
-                        ClockSkew = TimeSpan.Zero, // TO DO
+                        ClockSkew = TimeSpan.FromMinutes(1), // gives a buffer for token to not expire immediately
                         ValidIssuer = configuration["JwtSettings:Issuer"],
                         ValidAudience = configuration["JwtSettings:Audience"],
                         IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"]))
